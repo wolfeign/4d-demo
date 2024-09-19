@@ -1,9 +1,9 @@
-import * as THREE from "three";
+ï»¿import * as THREE from "three";
 
 const width = 960;
 const height = 540;
 
-// ’´—§•û‘Ì‚Ì’¸“_
+// è¶…ç«‹æ–¹ä½“ã®é ‚ç‚¹
 const vertex = [
     [1, 1, 1, 1],
     [1, 1, 1, -1],
@@ -23,7 +23,7 @@ const vertex = [
     [-1, -1, -1, -1]
 ];
 
-// “_‚Æ“_‚Ì‚Â‚È‚ª‚è
+// ç‚¹ã¨ç‚¹ã®ã¤ãªãŒã‚Š
 const link = [
     [0, 8],
     [1, 9],
@@ -62,19 +62,19 @@ const link = [
     [14, 15]
 ];
 
-// ƒŒƒ“ƒ_ƒ‰[‚ğì¬
+// ãƒ¬ãƒ³ãƒ€ãƒ©ãƒ¼ã‚’ä½œæˆ
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#myCanvas')
 });
 renderer.setSize(width, height);
 renderer.setPixelRatio(devicePixelRatio);
 
-// ƒJƒƒ‰‚ğì¬
+// ã‚«ãƒ¡ãƒ©ã‚’ä½œæˆ
 const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-// ƒJƒƒ‰‚Ì‰ŠúÀ•W‚ğİ’èiXÀ•W:0, YÀ•W:0, ZÀ•W:0j
+// ã‚«ãƒ¡ãƒ©ã®åˆæœŸåº§æ¨™ã‚’è¨­å®šï¼ˆXåº§æ¨™:0, Yåº§æ¨™:0, Zåº§æ¨™:0ï¼‰
 camera.position.set(0, 0, 20);
 
-// ƒV[ƒ“‚ğì¬
+// ã‚·ãƒ¼ãƒ³ã‚’ä½œæˆ
 const scene = new THREE.Scene();
 const material = new THREE.LineBasicMaterial({ color: 0x008000 });
 
@@ -106,10 +106,10 @@ for (let i = 0; i < link.length; i++) {
     lines.push(line);
 }
 
-// •½sŒõŒ¹
+// å¹³è¡Œå…‰æº
 const light = new THREE.DirectionalLight(0xffffff);
-light.intensity = 1; // Œõ‚Ì‹­‚³‚ğ”{‚É
-light.position.set(1, 1, 1); // ƒ‰ƒCƒg‚Ì•ûŒü
+light.intensity = 1; // å…‰ã®å¼·ã•ã‚’å€ã«
+light.position.set(1, 1, 1); // ãƒ©ã‚¤ãƒˆã®æ–¹å‘
 scene.add(light);
 
 let xy = 0;
@@ -119,13 +119,13 @@ let dragging = false;
 let xz = 0;
 let yz = 0;
 
-// ‰‰ñÀs
+// åˆå›å®Ÿè¡Œ
 tick();
 
 function tick() {
     requestAnimationFrame(tick);
 
-    // 4ŸŒ³‚Ì’¸“_‚ğ‰ñ“]‚µA3ŸŒ³‚É“Š‰e
+    // 4æ¬¡å…ƒã®é ‚ç‚¹ã‚’å›è»¢ã—ã€3æ¬¡å…ƒã«æŠ•å½±
     for (let i = 0; i < lines.length; i++) {
         const positions = lines[i].geometry.attributes.position.array;
 
@@ -158,7 +158,7 @@ function tick() {
         yw += 0.01;
     }
 
-    // ƒŒƒ“ƒ_ƒŠƒ“ƒO
+    // ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°
     renderer.render(scene, camera);
 }
 
